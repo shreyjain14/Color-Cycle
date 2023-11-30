@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title> Password Generator </title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <style>
+        body {
+            background-color: rgb({{ redVal }}, {{ greenVal }}, {{ blueVal }});
+            animation-name: colorChange;
+            animation-duration: 10s;
+
+        }
+        @keyframes colorChange{
+            0% {background-color: rgb({{ redVal }}, {{ greenVal }}, {{ blueVal }});}
+            100% {background-color: rgb({{ redValNew }}, {{ greenValNew }}, {{ blueValNew }})}
+        }
+    </style>
+</head>
+<body>
+    <form action="{{ url_for('read_form')}}" method="post">
+        <label>RED</label><br>
+        <input type="range" min="0" max="255" value="{{ redVal }}" name="red"><br>
+        <label>RED INCREMENT</label>
+        <input type="number" name="redinc" required>
+        <br><br>
+        <label>GREEN</label><br>
+        <input type="range" min="0" max="255" value="{{ greenVal }}" name="green"><br>
+        <label>GREEN INCREMENT</label>
+        <input type="number" name="greeninc" required>
+        <br><br>
+        <br><br>
+        <label>BLUE</label><br>
+        <input type="range" min="0" max="255" value="{{ blueVal }}" name="blue"><br>
+        <label>BLUE INCREMENT</label>
+        <input type="number" name="blueinc" required>
+        <br><br>
+        <br><br>
+        <input type="submit" value="Start">
+    </form>
+
+</body>
+</html>
